@@ -6,6 +6,14 @@ export function onRequest(context) {
     return context.next()
   }
 
+  const cookie = request.headers.get('cookie') || ''
+  const langCookie = cookie.split(';').find(c => c.trim().startsWith('preferred_lang='))
+  
+  if (langCookie) {
+    const preferredLang = langCookie.split('=')[1].trim()
+    return Response.redirect(new URL(preferredLang, request.url), 302)
+  }
+
   const acceptLanguage = request.headers.get('accept-language') || ''
   const languages = acceptLanguage.split(',').map(lang => lang.split(';')[0].trim())
 
@@ -32,5 +40,7 @@ export function onRequest(context) {
     }
   }
 
-  return Response.redirect(new URL(target, request.url), 302)
+  const response = Response.redirect(new URL(target, request.url), 302)
+  response.headers.set('Set-Cookie', `preferred_lang=${target}; Path=/; Max-Age=31536000; SameSite=Lax`)
+  return response
 }
