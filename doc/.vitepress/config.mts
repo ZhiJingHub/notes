@@ -4,11 +4,25 @@ const socialLinks = [
   { icon: 'github', link: 'https://github.com/ZhiJingHub' }
 ]
 
+const umamiScript = process.env.UMAMI_SCRIPT || 'https://u.iwexe.top/script.js'
+const umamiWebsiteId = process.env.UMAMI_WEBSITE_ID || ''
+
 export default defineConfig({
   title: "My Awesome Project",
   description: "A VitePress Site",
   srcDir: 'docs',
   cleanUrls: true,
+
+  head: umamiWebsiteId ? [
+    [
+      'script',
+      {
+        async: '',
+        src: umamiScript,
+        'data-website-id': umamiWebsiteId
+      }
+    ]
+  ] : [],
 
   themeConfig: {
     socialLinks,
