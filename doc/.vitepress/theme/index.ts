@@ -1,4 +1,4 @@
-import { h, onMounted, watch, ref } from 'vue'
+import { h, onMounted, watch } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { useData, useRouter } from 'vitepress'
@@ -6,34 +6,40 @@ import './style.css'
 
 const HomeLinkHandler = {
   setup() {
-    const { lang, site } = useData()
+    const { lang } = useData()
     const router = useRouter()
     
-    const getLocaleLink = () => {
-      const locales = site.value.locales
-      if (locales && locales[lang.value]) {
-        return locales[lang.value].link || '/'
-      }
+    const getLocaleHomeLink = () => {
+      const langValue = lang.value
+      if (langValue === 'zh-CN') return '/zh-CN/'
+      if (langValue === 'zh-Hant') return '/zh-Hant/'
+      if (langValue === 'en-US') return '/en-US/'
       return '/'
     }
     
-    onMounted(() => {
-      const updateHomeLinks = () => {
-        const homeLinks = document.querySelectorAll('a[href="/"]')
-        const localeLink = getLocaleLink()
-        homeLinks.forEach((link) => {
-          link.setAttribute('href', localeLink)
-          link.addEventListener('click', (e) => {
-            e.preventDefault()
-            router.go(localeLink)
-          }, { once: true })
-        })
-      }
+    const updateHomeLinks = () => {
+      const localeLink = getLocaleHomeLink()
+      const homeLinks = document.querySelectorAll('.VPNavBarTitle a[href="/"], .VPNav a[href="/"]')
       
+      homeLinks.forEach((link) => {
+        const el = link as HTMLAnchorElement
+        el.setAttribute('href', localeLink)
+        
+        const newEl = el.cloneNode(true) as HTMLAnchorElement
+        el.parentNode?.replaceChild(newEl, el)
+        
+        newEl.addEventListener('click', (e) => {
+          e.preventDefault()
+          router.go(localeLink)
+        })
+      })
+    }
+    
+    onMounted(() => {
       updateHomeLinks()
       
       watch(() => router.route.path, () => {
-        setTimeout(updateHomeLinks, 100)
+        setTimeout(updateHomeLinks, 50)
       })
     })
     
