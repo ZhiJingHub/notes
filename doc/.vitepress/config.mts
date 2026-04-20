@@ -82,7 +82,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en_US/' },
-          { text: 'Examples', link: '/en_US/markdown-examples' }
+          { text: 'Examples', link: '/en_US/markdown-examples' },
+          { text: 'About', link: '/en_US/about' }
         ],
         sidebar: [
           {
@@ -90,6 +91,12 @@ export default defineConfig({
             items: [
               { text: 'Markdown Examples', link: '/en_US/markdown-examples' },
               { text: 'Runtime API Examples', link: '/en_US/api-examples' }
+            ]
+          },
+          {
+            text: 'About',
+            items: [
+              { text: 'About This Project', link: '/en_US/about' }
             ]
           }
         ],
@@ -116,7 +123,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/zh_CN/' },
-          { text: '示例', link: '/zh_CN/markdown-examples' }
+          { text: '示例', link: '/zh_CN/markdown-examples' },
+          { text: '关于', link: '/zh_CN/about' }
         ],
         sidebar: [
           {
@@ -124,6 +132,12 @@ export default defineConfig({
             items: [
               { text: 'Markdown 示例', link: '/zh_CN/markdown-examples' },
               { text: '运行时 API 示例', link: '/zh_CN/api-examples' }
+            ]
+          },
+          {
+            text: '关于',
+            items: [
+              { text: '关于本项目', link: '/zh_CN/about' }
             ]
           }
         ],
@@ -150,7 +164,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首頁', link: '/zh_Hant/' },
-          { text: '範例', link: '/zh_Hant/markdown-examples' }
+          { text: '範例', link: '/zh_Hant/markdown-examples' },
+          { text: '關於', link: '/zh_Hant/about' }
         ],
         sidebar: [
           {
@@ -158,6 +173,12 @@ export default defineConfig({
             items: [
               { text: 'Markdown 範例', link: '/zh_Hant/markdown-examples' },
               { text: '執行時 API 範例', link: '/zh_Hant/api-examples' }
+            ]
+          },
+          {
+            text: '關於',
+            items: [
+              { text: '關於本專案', link: '/zh_Hant/about' }
             ]
           }
         ],
