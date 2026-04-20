@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Markdown 範例
-      link: /zh_Hant/markdown-examples
+      link: /zh-Hant/markdown-examples
     - theme: alt
       text: API 範例
-      link: /zh_Hant/api-examples
+      link: /zh-Hant/api-examples
 
 features:
   - title: 功能 A

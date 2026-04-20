@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Markdown Examples
-      link: /en_US/markdown-examples
+      link: /en-US/markdown-examples
     - theme: alt
       text: API Examples
-      link: /en_US/api-examples
+      link: /en-US/api-examples
 
 features:
   - title: Feature A
