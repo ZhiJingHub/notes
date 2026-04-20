@@ -6,5 +6,9 @@
   "assets": {
     "directory": "doc/.vitepress/dist",
     "binding": "ASSETS"
-  }
+  },
+  "build": {
+    "command": "pnpm install && pnpm run build"
+  },
+  "no_bundle": true
 }
