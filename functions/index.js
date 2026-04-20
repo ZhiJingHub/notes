@@ -9,24 +9,24 @@ export function onRequest(context) {
   const acceptLanguage = request.headers.get('accept-language') || ''
   const languages = acceptLanguage.split(',').map(lang => lang.split(';')[0].trim())
 
-  let target = '/en_US/'
+  let target = '/en-US/'
 
   for (const lang of languages) {
     if (lang === 'zh-CN' || lang === 'zh-Hans' || lang.startsWith('zh-Hans')) {
-      target = '/zh_CN/'
+      target = '/zh-CN/'
       break
     }
     if (lang === 'zh-TW' || lang === 'zh-HK' || lang === 'zh-MO' || 
         lang === 'zh-Hant' || lang.startsWith('zh-Hant')) {
-      target = '/zh_Hant/'
+      target = '/zh-Hant/'
       break
     }
     if (lang.startsWith('zh') && !lang.startsWith('zh-Hans') && !lang.startsWith('zh-Hant')) {
       const region = lang.split('-')[1]
       if (region === 'TW' || region === 'HK' || region === 'MO') {
-        target = '/zh_Hant/'
+        target = '/zh-Hant/'
       } else {
-        target = '/zh_CN/'
+        target = '/zh-CN/'
       }
       break
     }

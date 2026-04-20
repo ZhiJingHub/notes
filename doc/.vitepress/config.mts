@@ -76,27 +76,27 @@ export default defineConfig({
     en_US: {
       label: 'English',
       lang: 'en_US',
-      link: '/en_US/',
+      link: '/en-US/',
       title: 'My Awesome Project',
       description: 'A VitePress Site',
       themeConfig: {
         nav: [
-          { text: 'Home', link: '/en_US/' },
-          { text: 'Examples', link: '/en_US/markdown-examples' },
-          { text: 'About', link: '/en_US/about' }
+          { text: 'Home', link: '/en-US/' },
+          { text: 'Examples', link: '/en-US/markdown-examples' },
+          { text: 'About', link: '/en-US/about' }
         ],
         sidebar: [
           {
             text: 'Examples',
             items: [
-              { text: 'Markdown Examples', link: '/en_US/markdown-examples' },
-              { text: 'Runtime API Examples', link: '/en_US/api-examples' }
+              { text: 'Markdown Examples', link: '/en-US/markdown-examples' },
+              { text: 'Runtime API Examples', link: '/en-US/api-examples' }
             ]
           },
           {
             text: 'About',
             items: [
-              { text: 'About This Project', link: '/en_US/about' }
+              { text: 'About This Project', link: '/en-US/about' }
             ]
           }
         ],
@@ -117,27 +117,27 @@ export default defineConfig({
     zh_CN: {
       label: '简体中文',
       lang: 'zh_CN',
-      link: '/zh_CN/',
+      link: '/zh-CN/',
       title: '我的精彩项目',
       description: '一个 VitePress 网站',
       themeConfig: {
         nav: [
-          { text: '首页', link: '/zh_CN/' },
-          { text: '示例', link: '/zh_CN/markdown-examples' },
-          { text: '关于', link: '/zh_CN/about' }
+          { text: '首页', link: '/zh-CN/' },
+          { text: '示例', link: '/zh-CN/markdown-examples' },
+          { text: '关于', link: '/zh-CN/about' }
         ],
         sidebar: [
           {
             text: '示例',
             items: [
-              { text: 'Markdown 示例', link: '/zh_CN/markdown-examples' },
-              { text: '运行时 API 示例', link: '/zh_CN/api-examples' }
+              { text: 'Markdown 示例', link: '/zh-CN/markdown-examples' },
+              { text: '运行时 API 示例', link: '/zh-CN/api-examples' }
             ]
           },
           {
             text: '关于',
             items: [
-              { text: '关于本项目', link: '/zh_CN/about' }
+              { text: '关于本项目', link: '/zh-CN/about' }
             ]
           }
         ],
@@ -158,27 +158,27 @@ export default defineConfig({
     zh_Hant: {
       label: '繁體中文',
       lang: 'zh_Hant',
-      link: '/zh_Hant/',
+      link: '/zh-Hant/',
       title: '我的精彩專案',
       description: '一個 VitePress 網站',
       themeConfig: {
         nav: [
-          { text: '首頁', link: '/zh_Hant/' },
-          { text: '範例', link: '/zh_Hant/markdown-examples' },
-          { text: '關於', link: '/zh_Hant/about' }
+          { text: '首頁', link: '/zh-Hant/' },
+          { text: '範例', link: '/zh-Hant/markdown-examples' },
+          { text: '關於', link: '/zh-Hant/about' }
         ],
         sidebar: [
           {
             text: '範例',
             items: [
-              { text: 'Markdown 範例', link: '/zh_Hant/markdown-examples' },
-              { text: '執行時 API 範例', link: '/zh_Hant/api-examples' }
+              { text: 'Markdown 範例', link: '/zh-Hant/markdown-examples' },
+              { text: '執行時 API 範例', link: '/zh-Hant/api-examples' }
             ]
           },
           {
             text: '關於',
             items: [
-              { text: '關於本專案', link: '/zh_Hant/about' }
+              { text: '關於本專案', link: '/zh-Hant/about' }
             ]
           }
         ],
