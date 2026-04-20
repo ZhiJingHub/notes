@@ -12,10 +12,6 @@ export default defineConfig({
 
   themeConfig: {
     socialLinks,
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/zh-CN/markdown-examples' }
-    ],
     outline: {
       level: [2, 3],
       label: 'On this page'
@@ -128,9 +124,9 @@ export default defineConfig({
   },
 
   locales: {
-    en_US: {
+    'en-US': {
       label: 'English',
-      lang: 'en_US',
+      lang: 'en-US',
       link: '/en-US/',
       title: 'My Awesome Project',
       description: 'A VitePress Site',
@@ -160,9 +156,9 @@ export default defineConfig({
         langMenuLabel: 'Switch language'
       }
     },
-    zh_CN: {
+    'zh-CN': {
       label: '简体中文',
-      lang: 'zh_CN',
+      lang: 'zh-CN',
       link: '/zh-CN/',
       title: '我的精彩项目',
       description: '一个 VitePress 网站',
@@ -192,9 +188,9 @@ export default defineConfig({
         langMenuLabel: '切换语言'
       }
     },
-    zh_Hant: {
+    'zh-Hant': {
       label: '繁體中文',
-      lang: 'zh_Hant',
+      lang: 'zh-Hant',
       link: '/zh-Hant/',
       title: '我的精彩專案',
       description: '一個 VitePress 網站',
