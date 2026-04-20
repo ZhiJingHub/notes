@@ -1,11 +1,34 @@
 import { defineConfig } from 'vitepress'
+import { readFileSync, existsSync } from 'fs'
+import { resolve } from 'path'
 
 const socialLinks = [
   { icon: 'github', link: 'https://github.com/ZhiJingHub' }
 ]
 
-const umamiScript = process.env.UMAMI_SCRIPT || 'https://u.iwexe.top/script.js'
-const umamiWebsiteId = process.env.UMAMI_WEBSITE_ID || ''
+function loadEnv() {
+  const envPath = resolve(process.cwd(), '.env')
+  if (!existsSync(envPath)) return {}
+  
+  const content = readFileSync(envPath, 'utf-8')
+  const env: Record<string, string> = {}
+  
+  content.split('\n').forEach(line => {
+    const trimmed = line.trim()
+    if (trimmed && !trimmed.startsWith('#')) {
+      const [key, ...values] = trimmed.split('=')
+      if (key) {
+        env[key.trim()] = values.join('=').trim()
+      }
+    }
+  })
+  
+  return env
+}
+
+const localEnv = loadEnv()
+const umamiScript = process.env.UMAMI_SCRIPT || localEnv.UMAMI_SCRIPT || 'https://u.iwexe.top/script.js'
+const umamiWebsiteId = process.env.UMAMI_WEBSITE_ID || localEnv.UMAMI_WEBSITE_ID || ''
 
 export default defineConfig({
   title: "My Awesome Project",
@@ -13,7 +36,7 @@ export default defineConfig({
   srcDir: 'docs',
   cleanUrls: true,
 
-  head: umamiWebsiteId ? [
+  head: [
     [
       'script',
       {
@@ -22,7 +45,7 @@ export default defineConfig({
         'data-website-id': umamiWebsiteId
       }
     ]
-  ] : [],
+  ],
 
   themeConfig: {
     socialLinks,
