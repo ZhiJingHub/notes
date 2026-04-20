@@ -1,8 +1,7 @@
 {
   "devDependencies": {
     "vitepress": "2.0.0-alpha.17",
-    "wrangler": "^3.0.0",
-    "@cloudflare/kv-asset-handler": "^0.3.0"
+    "wrangler": "^3.0.0"
   },
   "scripts": {
     "dev": "vitepress dev doc",
