@@ -1,9 +1,0 @@
-{
-  "name": "notes",
-  "main": "worker.js",
-  "compatibility_date": "2025-12-31",
-  "assets": {
-    "directory": "./doc/.vitepress/dist",
-    "binding": "ASSETS"
-  }
-}
