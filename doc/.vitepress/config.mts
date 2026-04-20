@@ -11,6 +11,7 @@ export default defineConfig({
   cleanUrls: true,
 
   themeConfig: {
+    siteTitle: 'My Project',
     socialLinks,
     outline: {
       level: [2, 3],
