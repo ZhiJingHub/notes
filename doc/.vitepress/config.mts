@@ -12,6 +12,57 @@ export default defineConfig({
 
   themeConfig: {
     socialLinks,
+    outline: {
+      level: [2, 3],
+      label: 'On this page'
+    },
+    sidebar: {
+      '/en-US/': [
+        {
+          text: 'Examples',
+          items: [
+            { text: 'Markdown Examples', link: '/en-US/markdown-examples' },
+            { text: 'Runtime API Examples', link: '/en-US/api-examples' }
+          ]
+        },
+        {
+          text: 'About',
+          items: [
+            { text: 'About This Project', link: '/en-US/about' }
+          ]
+        }
+      ],
+      '/zh-CN/': [
+        {
+          text: '示例',
+          items: [
+            { text: 'Markdown 示例', link: '/zh-CN/markdown-examples' },
+            { text: '运行时 API 示例', link: '/zh-CN/api-examples' }
+          ]
+        },
+        {
+          text: '关于',
+          items: [
+            { text: '关于本项目', link: '/zh-CN/about' }
+          ]
+        }
+      ],
+      '/zh-Hant/': [
+        {
+          text: '範例',
+          items: [
+            { text: 'Markdown 範例', link: '/zh-Hant/markdown-examples' },
+            { text: '執行時 API 範例', link: '/zh-Hant/api-examples' }
+          ]
+        },
+        {
+          text: '關於',
+          items: [
+            { text: '關於本專案', link: '/zh-Hant/about' }
+          ]
+        }
+      ]
+    },
     search: {
       provider: 'local',
       options: {
@@ -85,21 +136,6 @@ export default defineConfig({
           { text: 'Examples', link: '/en-US/markdown-examples' },
           { text: 'About', link: '/en-US/about' }
         ],
-        sidebar: [
-          {
-            text: 'Examples',
-            items: [
-              { text: 'Markdown Examples', link: '/en-US/markdown-examples' },
-              { text: 'Runtime API Examples', link: '/en-US/api-examples' }
-            ]
-          },
-          {
-            text: 'About',
-            items: [
-              { text: 'About This Project', link: '/en-US/about' }
-            ]
-          }
-        ],
         outlineTitle: 'On this page',
         lastUpdatedText: 'Last updated',
         docFooter: {
@@ -126,21 +162,6 @@ export default defineConfig({
           { text: '示例', link: '/zh-CN/markdown-examples' },
           { text: '关于', link: '/zh-CN/about' }
         ],
-        sidebar: [
-          {
-            text: '示例',
-            items: [
-              { text: 'Markdown 示例', link: '/zh-CN/markdown-examples' },
-              { text: '运行时 API 示例', link: '/zh-CN/api-examples' }
-            ]
-          },
-          {
-            text: '关于',
-            items: [
-              { text: '关于本项目', link: '/zh-CN/about' }
-            ]
-          }
-        ],
         outlineTitle: '目录',
         lastUpdatedText: '最后更新',
         docFooter: {
@@ -166,21 +187,6 @@ export default defineConfig({
           { text: '首頁', link: '/zh-Hant/' },
           { text: '範例', link: '/zh-Hant/markdown-examples' },
           { text: '關於', link: '/zh-Hant/about' }
-        ],
-        sidebar: [
-          {
-            text: '範例',
-            items: [
-              { text: 'Markdown 範例', link: '/zh-Hant/markdown-examples' },
-              { text: '執行時 API 範例', link: '/zh-Hant/api-examples' }
-            ]
-          },
-          {
-            text: '關於',
-            items: [
-              { text: '關於本專案', link: '/zh-Hant/about' }
-            ]
-          }
         ],
         outlineTitle: '目錄',
         lastUpdatedText: '最後更新',
