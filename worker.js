@@ -37,9 +37,14 @@ export default {
         }
       }
       
-      const response = Response.redirect(new URL(target, request.url), 302)
-      response.headers.set('Set-Cookie', `preferred_lang=${target}; Path=/; Max-Age=31536000; SameSite=Lax`)
-      return response
+      const redirectUrl = new URL(target, request.url)
+      return new Response(null, {
+        status: 302,
+        headers: {
+          'Location': redirectUrl.href,
+          'Set-Cookie': `preferred_lang=${target}; Path=/; Max-Age=31536000; SameSite=Lax`
+        }
+      })
     }
     
     return env.ASSETS.fetch(request)
