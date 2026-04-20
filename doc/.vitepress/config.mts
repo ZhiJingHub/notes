@@ -89,7 +89,7 @@ export default defineConfig({
           }
         ],
         socialLinks: [
-          { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+          { icon: 'github', link: 'https://github.com/ZhiJingHub' }
         ],
         outlineTitle: '目錄',
         lastUpdatedText: '最後更新',
