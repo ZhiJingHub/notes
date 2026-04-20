@@ -1,0 +1,39 @@
+[build]
+  command = "pnpm run build"
+  publish = "doc/.vitepress/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/"
+  to = "/en_US/"
+  status = 302
+  force = true
+  conditions = {Language = ["en"]}
+
+[[redirects]]
+  from = "/"
+  to = "/zh_CN/"
+  status = 302
+  force = true
+  conditions = {Language = ["zh-CN", "zh-Hans"]}
+
+[[redirects]]
+  from = "/"
+  to = "/zh_Hant/"
+  status = 302
+  force = true
+  conditions = {Language = ["zh-TW", "zh-HK", "zh-MO"]}
+
+[[redirects]]
+  from = "/"
+  to = "/en_US/"
+  status = 302
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
