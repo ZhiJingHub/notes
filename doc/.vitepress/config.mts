@@ -1,9 +1,14 @@
 import { defineConfig } from 'vitepress'
 
+const socialLinks = [
+  { icon: 'github', link: 'https://github.com/ZhiJingHub' }
+]
+
 export default defineConfig({
   title: "My Awesome Project",
   description: "A VitePress Site",
   srcDir: 'docs',
+  cleanUrls: true,
 
   locales: {
     en_US: {
@@ -26,9 +31,7 @@ export default defineConfig({
             ]
           }
         ],
-        socialLinks: [
-          { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-        ]
+        socialLinks
       }
     },
     zh_CN: {
@@ -51,9 +54,7 @@ export default defineConfig({
             ]
           }
         ],
-        socialLinks: [
-          { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-        ],
+        socialLinks,
         outlineTitle: '目录',
         lastUpdatedText: '最后更新',
         docFooter: {
@@ -88,9 +89,7 @@ export default defineConfig({
             ]
           }
         ],
-        socialLinks: [
-          { icon: 'github', link: 'https://github.com/ZhiJingHub' }
-        ],
+        socialLinks,
         outlineTitle: '目錄',
         lastUpdatedText: '最後更新',
         docFooter: {
