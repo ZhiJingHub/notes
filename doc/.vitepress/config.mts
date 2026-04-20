@@ -12,23 +12,6 @@ export default defineConfig({
 
   themeConfig: {
     socialLinks,
-    nav: {
-      '/en-US/': [
-        { text: 'Home', link: '/en-US/' },
-        { text: 'Examples', link: '/en-US/markdown-examples' },
-        { text: 'About', link: '/en-US/about' }
-      ],
-      '/zh-CN/': [
-        { text: '首页', link: '/zh-CN/' },
-        { text: '示例', link: '/zh-CN/markdown-examples' },
-        { text: '关于', link: '/zh-CN/about' }
-      ],
-      '/zh-Hant/': [
-        { text: '首頁', link: '/zh-Hant/' },
-        { text: '範例', link: '/zh-Hant/markdown-examples' },
-        { text: '關於', link: '/zh-Hant/about' }
-      ]
-    },
     outline: {
       level: [2, 3],
       label: 'On this page'
@@ -148,6 +131,11 @@ export default defineConfig({
       title: 'My Awesome Project',
       description: 'A VitePress Site',
       themeConfig: {
+        nav: [
+          { text: 'Home', link: '/en-US/' },
+          { text: 'Examples', link: '/en-US/markdown-examples' },
+          { text: 'About', link: '/en-US/about' }
+        ],
         outlineTitle: 'On this page',
         lastUpdatedText: 'Last updated',
         docFooter: {
@@ -169,6 +157,11 @@ export default defineConfig({
       title: '我的精彩项目',
       description: '一个 VitePress 网站',
       themeConfig: {
+        nav: [
+          { text: '首页', link: '/zh-CN/' },
+          { text: '示例', link: '/zh-CN/markdown-examples' },
+          { text: '关于', link: '/zh-CN/about' }
+        ],
         outlineTitle: '目录',
         lastUpdatedText: '最后更新',
         docFooter: {
@@ -190,6 +183,11 @@ export default defineConfig({
       title: '我的精彩專案',
       description: '一個 VitePress 網站',
       themeConfig: {
+        nav: [
+          { text: '首頁', link: '/zh-Hant/' },
+          { text: '範例', link: '/zh-Hant/markdown-examples' },
+          { text: '關於', link: '/zh-Hant/about' }
+        ],
         outlineTitle: '目錄',
         lastUpdatedText: '最後更新',
         docFooter: {
