@@ -4,3 +4,5 @@ doc/.vitepress/dist/
 .DS_Store
 Thumbs.db
 *.local
+.wrangler/
+.dev.vars

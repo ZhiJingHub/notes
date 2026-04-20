@@ -1,0 +1,9 @@
+name = "notes"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[site]
+bucket = "./doc/.vitepress/dist"
+
+[build]
+command = "pnpm run build"

@@ -1,10 +1,14 @@
 {
   "devDependencies": {
-    "vitepress": "2.0.0-alpha.17"
+    "vitepress": "2.0.0-alpha.17",
+    "wrangler": "^3.0.0",
+    "@cloudflare/kv-asset-handler": "^0.3.0"
   },
   "scripts": {
     "dev": "vitepress dev doc",
     "build": "vitepress build doc",
-    "preview": "vitepress preview doc"
+    "preview": "vitepress preview doc",
+    "deploy:cf": "pnpm run build && wrangler deploy",
+    "deploy:pages": "pnpm run build && wrangler pages deploy doc/.vitepress/dist"
   }
 }
