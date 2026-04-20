@@ -5,7 +5,7 @@
   },
   "scripts": {
     "dev": "vitepress dev doc",
-    "build": "vitepress build doc",
+    "build": "vitepress build doc && node -e \"const fs=require('fs'); const p='doc/.vitepress/dist/index.html'; if(fs.existsSync(p)) fs.unlinkSync(p);\"",
     "preview": "vitepress preview doc",
     "deploy:worker": "pnpm run build && wrangler deploy",
     "deploy:pages": "pnpm run build && wrangler pages deploy doc/.vitepress/dist"
