@@ -1,5 +1,6 @@
 ---
 layout: home
+navbar: true
 
 hero:
   name: "我的精彩项目"

@@ -1,5 +1,6 @@
 ---
 layout: home
+navbar: true
 
 hero:
   name: "My Awesome Project"

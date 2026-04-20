@@ -12,6 +12,10 @@ export default defineConfig({
 
   themeConfig: {
     socialLinks,
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Examples', link: '/zh-CN/markdown-examples' }
+    ],
     outline: {
       level: [2, 3],
       label: 'On this page'
@@ -133,7 +137,13 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en-US/' },
-          { text: 'Examples', link: '/en-US/markdown-examples' },
+          {
+            text: 'Guide',
+            items: [
+              { text: 'Markdown Examples', link: '/en-US/markdown-examples' },
+              { text: 'Runtime API Examples', link: '/en-US/api-examples' }
+            ]
+          },
           { text: 'About', link: '/en-US/about' }
         ],
         outlineTitle: 'On this page',
@@ -159,7 +169,13 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/zh-CN/' },
-          { text: '示例', link: '/zh-CN/markdown-examples' },
+          {
+            text: '指南',
+            items: [
+              { text: 'Markdown 示例', link: '/zh-CN/markdown-examples' },
+              { text: '运行时 API 示例', link: '/zh-CN/api-examples' }
+            ]
+          },
           { text: '关于', link: '/zh-CN/about' }
         ],
         outlineTitle: '目录',
@@ -185,7 +201,13 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首頁', link: '/zh-Hant/' },
-          { text: '範例', link: '/zh-Hant/markdown-examples' },
+          {
+            text: '指南',
+            items: [
+              { text: 'Markdown 範例', link: '/zh-Hant/markdown-examples' },
+              { text: '執行時 API 範例', link: '/zh-Hant/api-examples' }
+            ]
+          },
           { text: '關於', link: '/zh-Hant/about' }
         ],
         outlineTitle: '目錄',
