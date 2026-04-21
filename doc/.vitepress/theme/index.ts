@@ -2,6 +2,7 @@ import { h, onMounted, watch } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { useData, useRouter } from 'vitepress'
+import HtmlDemo from './components/HtmlDemo.vue'
 import './style.css'
 
 const HomeLinkHandler = {
@@ -55,5 +56,6 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
+    app.component('HtmlDemo', HtmlDemo)
   }
 } satisfies Theme
