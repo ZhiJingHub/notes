@@ -52,29 +52,6 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Love99You',
-          collapsed: true,
-          items: [
-            { text: 'Love99You 首页', link: '/zh-CN/love99you/' },
-            { text: 'Christmas Tree', link: '/zh-CN/love99you/christmas-tree' },
-            { text: 'Happy Birthday Cake', link: '/zh-CN/love99you/happy-birthday-cake' },
-            { text: 'Happy Birthday Fireworks', link: '/zh-CN/love99you/happy-birthday-fireworks' },
-            { text: 'Christmas', link: '/zh-CN/love99you/christmas' },
-            { text: 'I Love You Fullen', link: '/zh-CN/love99you/iloveyoufullen' },
-            { text: 'Love 3D', link: '/zh-CN/love99you/love3d' },
-            { text: 'Love99You', link: '/zh-CN/love99you/love99you' },
-            { text: 'Love Double', link: '/zh-CN/love99you/lovedouble' },
-            { text: 'Love Red', link: '/zh-CN/love99you/lovered' },
-            { text: 'Love Shalou', link: '/zh-CN/love99you/loveshalou' },
-            { text: 'Love With Star', link: '/zh-CN/love99you/lovewithstar' },
-            { text: 'Notes', link: '/zh-CN/love99you/notes' },
-            { text: 'Pink 3D Love', link: '/zh-CN/love99you/pink3dlove' },
-            { text: 'Red 3D Love', link: '/zh-CN/love99you/red3dlove' },
-            { text: 'Rose', link: '/zh-CN/love99you/rose' },
-            { text: 'Small Heart', link: '/zh-CN/love99you/smallheart' }
-          ]
-        },
-        {
           text: '关于',
           items: [
             { text: '关于本项目', link: '/zh-CN/about' }
