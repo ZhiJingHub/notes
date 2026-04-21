@@ -151,8 +151,8 @@ export default defineConfig({
               { text: 'Runtime API Examples', link: '/en-US/api-examples' }
             ]
           },
-          { text: 'About', link: '/en-US/about' },
-          { text: 'Analytics', link: 'https://u.iwexe.top/share/LFujHhYK7P1QcNCK' }
+          { text: 'Analytics', link: 'https://u.iwexe.top/share/LFujHhYK7P1QcNCK' },
+          { text: 'About', link: '/en-US/about' }
         ],
         outlineTitle: 'On this page',
         lastUpdatedText: 'Last updated',
@@ -184,8 +184,8 @@ export default defineConfig({
               { text: '运行时 API 示例', link: '/zh-CN/api-examples' }
             ]
           },
-          { text: '关于', link: '/zh-CN/about' },
-          { text: '统计', link: 'https://u.iwexe.top/share/LFujHhYK7P1QcNCK' }
+          { text: '统计', link: 'https://u.iwexe.top/share/LFujHhYK7P1QcNCK' },
+          { text: '关于', link: '/zh-CN/about' }
         ],
         outlineTitle: '目录',
         lastUpdatedText: '最后更新',
@@ -217,8 +217,8 @@ export default defineConfig({
               { text: '執行時 API 範例', link: '/zh-Hant/api-examples' }
             ]
           },
-          { text: '關於', link: '/zh-Hant/about' },
-          { text: '統計', link: 'https://u.iwexe.top/share/LFujHhYK7P1QcNCK' }
+          { text: '統計', link: 'https://u.iwexe.top/share/LFujHhYK7P1QcNCK' },
+          { text: '關於', link: '/zh-Hant/about' }
         ],
         outlineTitle: '目錄',
         lastUpdatedText: '最後更新',
