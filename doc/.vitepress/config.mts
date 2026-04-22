@@ -9,6 +9,9 @@ export default defineConfig({
   description: "A VitePress Site",
   srcDir: 'docs',
   cleanUrls: true,
+  sitemap: {
+    hostname: 'https://docs.iwexe.top'
+  },
 
   head: [
     [
