@@ -6,6 +6,9 @@ hero:
   name: "我的精彩專案"
   text: "一個 VitePress 網站"
   tagline: 我的專案標語
+  image:
+    src: /logo.svg
+    alt: Logo
   actions:
     - theme: brand
       text: Markdown 範例

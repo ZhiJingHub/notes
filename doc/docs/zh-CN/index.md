@@ -6,6 +6,9 @@ hero:
   name: "我的精彩项目"
   text: "一个 VitePress 网站"
   tagline: 我的项目标语
+  image:
+    src: /logo.svg
+    alt: Logo
   actions:
     - theme: brand
       text: Markdown 示例

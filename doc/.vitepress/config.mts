@@ -18,7 +18,10 @@ export default defineConfig({
         src: 'https://u.iwexe.top/script.js',
         'data-website-id': '6484dd8a-fde8-4e5d-aa33-19f4f9f9250c'
       }
-    ]
+    ],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
+    ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
 
   themeConfig: {
