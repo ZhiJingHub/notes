@@ -30,16 +30,16 @@ export default defineConfig({
     sidebar: {
       '/en-US/': [
         {
-          text: 'Docker',
-          items: [
-            { text: '青龙脚本', link: '/en-US/Docker/青龙脚本' }
-          ]
-        },
-        {
           text: 'Examples',
           items: [
             { text: 'Markdown Examples', link: '/en-US/markdown-examples' },
             { text: 'Runtime API Examples', link: '/en-US/api-examples' }
+          ]
+        },
+        {
+          text: 'Docker',
+          items: [
+            { text: '青龙面板', link: '/en-US/Docker/青龙面板' }
           ]
         },
         {
@@ -51,16 +51,16 @@ export default defineConfig({
       ],
       '/zh-CN/': [
         {
-          text: 'Docker',
-          items: [
-            { text: '青龙脚本', link: '/zh-CN/Docker/青龙脚本' }
-          ]
-        },
-        {
           text: '示例',
           items: [
             { text: 'Markdown 示例', link: '/zh-CN/markdown-examples' },
             { text: '运行时 API 示例', link: '/zh-CN/api-examples' }
+          ]
+        },
+        {
+          text: 'Docker',
+          items: [
+            { text: '青龙面板', link: '/zh-CN/Docker/青龙面板' }
           ]
         },
         {
@@ -72,16 +72,16 @@ export default defineConfig({
       ],
       '/zh-Hant/': [
         {
-          text: 'Docker',
-          items: [
-            { text: '青龍腳本', link: '/zh-Hant/Docker/青龙脚本' }
-          ]
-        },
-        {
           text: '範例',
           items: [
             { text: 'Markdown 範例', link: '/zh-Hant/markdown-examples' },
             { text: '執行時 API 範例', link: '/zh-Hant/api-examples' }
+          ]
+        },
+        {
+          text: 'Docker',
+          items: [
+            { text: '青龍面板', link: '/zh-Hant/Docker/青龙面板' }
           ]
         },
         {
