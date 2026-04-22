@@ -39,7 +39,7 @@ export default defineConfig({
         {
           text: 'Docker',
           items: [
-            { text: '青龙面板', link: '/en-US/Docker/青龙面板' }
+            { text: 'Qinglong Panel', link: '/en-US/Docker/qinglong-panel' }
           ]
         },
         {
@@ -81,7 +81,7 @@ export default defineConfig({
         {
           text: 'Docker',
           items: [
-            { text: '青龍面板', link: '/zh-Hant/Docker/青龙面板' }
+            { text: '青龍面板', link: '/zh-Hant/Docker/青龍面板' }
           ]
         },
         {
