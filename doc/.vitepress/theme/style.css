@@ -154,3 +154,17 @@
   background: rgba(30, 30, 32, 0.9) !important;
 }
 
+/**
+ * Home Layout Fix
+ * -------------------------------------------------------------------------- */
+
+.VPHome {
+  padding-top: 112px !important;
+}
+
+@media (min-width: 960px) {
+  .VPHome {
+    padding-top: 128px !important;
+  }
+}
+
