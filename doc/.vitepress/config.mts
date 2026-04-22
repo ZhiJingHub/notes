@@ -30,6 +30,12 @@ export default defineConfig({
     sidebar: {
       '/en-US/': [
         {
+          text: 'Docker',
+          items: [
+            { text: '青龙脚本', link: '/en-US/Docker/青龙脚本' }
+          ]
+        },
+        {
           text: 'Examples',
           items: [
             { text: 'Markdown Examples', link: '/en-US/markdown-examples' },
@@ -45,6 +51,12 @@ export default defineConfig({
       ],
       '/zh-CN/': [
         {
+          text: 'Docker',
+          items: [
+            { text: '青龙脚本', link: '/zh-CN/Docker/青龙脚本' }
+          ]
+        },
+        {
           text: '示例',
           items: [
             { text: 'Markdown 示例', link: '/zh-CN/markdown-examples' },
@@ -59,6 +71,12 @@ export default defineConfig({
         }
       ],
       '/zh-Hant/': [
+        {
+          text: 'Docker',
+          items: [
+            { text: '青龍腳本', link: '/zh-Hant/Docker/青龙脚本' }
+          ]
+        },
         {
           text: '範例',
           items: [
