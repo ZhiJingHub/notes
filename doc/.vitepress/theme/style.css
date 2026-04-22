@@ -132,3 +132,25 @@
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
 
+/**
+ * Glassmorphism (毛玻璃效果)
+ * -------------------------------------------------------------------------- */
+
+.VPNav {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .VPNav {
+  background: rgba(30, 30, 32, 0.7) !important;
+}
+
+.VPNav.no-sidebar {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.dark .VPNav.no-sidebar {
+  background: rgba(30, 30, 32, 0.9) !important;
+}
+
