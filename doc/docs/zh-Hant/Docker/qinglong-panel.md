@@ -11,12 +11,6 @@ docker run -dit \
   whyour/qinglong:latest
 ```
 
-## 拉取腳本後綴
-
-```bash
-js mjs py pyc sh ts
-```
-
 ## 依賴
 
 ### NodeJs
@@ -35,18 +29,17 @@ canvas
 request
 tough-cookie
 tslib
+ws
 ws@7.4.3
 ts-md5
 jsrsasign
 jsencrypt
 jieba
-fs
 form-data
 json5
 global-agent
 png-js
 @types/node
-require
 typescript
 js-base64
 moment
@@ -59,22 +52,24 @@ yml2213-utils
 sm-crypto
 node-telegram-bot-api
 ql
+got
 ```
 
 ### Python3
 
 ```bash
-bs4
-rsa
 requests
-canvas
-ping3
-jieba
 PyExecJS
 aiohttp
-redis
-pycryptodome
 httpx
+pycryptodome
+rsa
+bs4
+ping3
+jieba
+redis
+telethon
+urllib3
 ```
 
 ### Linux
@@ -83,7 +78,18 @@ httpx
 --no-cache
 build-base
 g++
+make
 cairo-dev
 pango-dev
 giflib-dev
+libffi-dev
+openssl-dev
+python3-dev
+musl-dev
+```
+
+## 拉取腳本後綴
+
+```bash
+js mjs py pyc sh ts
 ```
