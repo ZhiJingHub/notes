@@ -50,7 +50,7 @@ export default {
     const response = await env.ASSETS.fetch(request)
     
     const staticExtensions = ['.js', '.css', '.woff2', '.woff', '.ttf', '.eot', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp']
-    const isStaticAsset = url.pathname.startsWith('/assets/') || staticExtensions.some(ext => url.pathname.endsWith(ext))
+    const isStaticAsset = url.pathname.startsWith('/assets/') || url.pathname.startsWith('/fonts/') || staticExtensions.some(ext => url.pathname.endsWith(ext))
     
     if (isStaticAsset) {
       const newResponse = new Response(response.body, response)

@@ -1,6 +1,7 @@
-import type { DefaultTheme } from 'vitepress'
+import type { LocaleSpecificConfig } from 'vitepress'
+import type { DefaultTheme } from 'vitepress/theme'
 
-export const enUS: DefaultTheme.Config = {
+export const enUS: LocaleSpecificConfig<DefaultTheme.Config> = {
   label: 'English',
   lang: 'en-US',
   link: '/en-US/',
