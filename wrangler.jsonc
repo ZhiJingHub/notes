@@ -10,5 +10,8 @@
   "build": {
     "command": "pnpm install && pnpm run build"
   },
-  "no_bundle": true
+  "no_bundle": true,
+  "observability": {
+    "enabled": true
+  }
 }
