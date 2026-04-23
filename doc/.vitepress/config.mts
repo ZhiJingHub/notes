@@ -27,9 +27,7 @@ export default defineConfig({
     ],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
-    ['link', { rel: 'preconnect', href: 'https://gcore.jsdelivr.net', crossorigin: '' }],
-    ['link', { rel: 'dns-prefetch', href: 'https://gcore.jsdelivr.net' }]
+    ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
 
   themeConfig: {
