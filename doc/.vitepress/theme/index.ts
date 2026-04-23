@@ -19,16 +19,15 @@ const HomeLinkHandler = {
     
     const updateHomeLinks = () => {
       const localeLink = getLocaleHomeLink()
-      const homeLinks = document.querySelectorAll('.VPNavBarTitle a[href="/"], .VPNav a[href="/"]')
+      const homeLinks = document.querySelectorAll('.VPNavBarTitle a[href="/"]')
       
       homeLinks.forEach((link) => {
         const el = link as HTMLAnchorElement
+        if (el.dataset.localeHandled) return
+        el.dataset.localeHandled = 'true'
         el.setAttribute('href', localeLink)
         
-        const newEl = el.cloneNode(true) as HTMLAnchorElement
-        el.parentNode?.replaceChild(newEl, el)
-        
-        newEl.addEventListener('click', (e) => {
+        el.addEventListener('click', (e) => {
           e.preventDefault()
           router.go(localeLink)
         })
