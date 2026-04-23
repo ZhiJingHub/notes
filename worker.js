@@ -42,11 +42,28 @@ export default {
         status: 302,
         headers: {
           'Location': redirectUrl.href,
-          'Set-Cookie': `preferred_lang=${target}; Path=/; Max-Age=31536000; SameSite=Lax`
+          'Set-Cookie': `preferred_lang=${target}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`
         }
       })
     }
+
+    const response = await env.ASSETS.fetch(request)
     
-    return env.ASSETS.fetch(request)
+    const staticExtensions = ['.js', '.css', '.woff2', '.woff', '.ttf', '.eot', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp']
+    const isStaticAsset = url.pathname.startsWith('/assets/') || staticExtensions.some(ext => url.pathname.endsWith(ext))
+    
+    if (isStaticAsset) {
+      const newResponse = new Response(response.body, response)
+      newResponse.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+      return newResponse
+    }
+    
+    if (response.headers.get('content-type')?.includes('text/html')) {
+      const newResponse = new Response(response.body, response)
+      newResponse.headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
+      return newResponse
+    }
+    
+    return response
   }
 }
