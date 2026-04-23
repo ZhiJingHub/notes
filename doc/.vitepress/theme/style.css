@@ -278,11 +278,66 @@
  * -------------------------------------------------------------------------- */
 
 .VPHome {
-  padding-bottom: 128px;
+  padding-top: 24px;
+  padding-bottom: 96px;
+}
+
+@media (min-width: 768px) {
+  .VPHome {
+    padding-top: 48px;
+    padding-bottom: 128px;
+  }
 }
 
 @media (min-width: 960px) {
   .VPHome {
+    padding-top: 64px;
     padding-bottom: 96px;
+  }
+}
+
+/**
+ * Hero Section
+ * -------------------------------------------------------------------------- */
+
+.VPHero {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .VPHero {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPHero {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+}
+
+/**
+ * Features Section
+ * -------------------------------------------------------------------------- */
+
+.VPFeatures {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .VPFeatures {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPFeatures {
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 }
