@@ -4,6 +4,39 @@
  */
 
 /**
+ * Fonts
+ * -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'HarmonyOS Sans';
+  src: url('https://s1.hdslb.com/bfs/static/jinkela/long/font/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans';
+  src: url('https://s1.hdslb.com/bfs/static/jinkela/long/font/HarmonyOS_Sans_SC_Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans';
+  src: url('https://s1.hdslb.com/bfs/static/jinkela/long/font/HarmonyOS_Sans_SC_Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --vp-font-family-base: 'HarmonyOS Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+/**
  * Colors
  *
  * Each colors have exact same color scale system with 3 levels of solid
@@ -131,40 +164,3 @@
   --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
-
-/**
- * Glassmorphism (毛玻璃效果)
- * -------------------------------------------------------------------------- */
-
-.VPNav {
-  background: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.dark .VPNav {
-  background: rgba(30, 30, 32, 0.7) !important;
-}
-
-.VPNav.no-sidebar {
-  background: rgba(255, 255, 255, 0.9) !important;
-}
-
-.dark .VPNav.no-sidebar {
-  background: rgba(30, 30, 32, 0.9) !important;
-}
-
-/**
- * Home Layout Fix
- * -------------------------------------------------------------------------- */
-
-.VPHome {
-  padding-top: 112px !important;
-}
-
-@media (min-width: 960px) {
-  .VPHome {
-    padding-top: 128px !important;
-  }
-}
-
