@@ -7,6 +7,10 @@
  * Fonts
  * -------------------------------------------------------------------------- */
 
+@import url('https://gcore.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Regular/Regular.css');
+@import url('https://gcore.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Medium/Medium.css');
+@import url('https://gcore.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css');
+
 @font-face {
   font-family: 'JetBrains Mono';
   src: url('https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.18/files/jetbrains-mono-cyrillic-ext-400-normal.woff2') format('woff2');
