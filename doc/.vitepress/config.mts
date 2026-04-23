@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitepress'
-import { enUS, enUSSidebar, enUSSearch } from './locales/en-US'
-import { zhCN, zhCNSidebar, zhCNSearch } from './locales/zh-CN'
-import { zhHant, zhHantSidebar, zhHantSearch } from './locales/zh-Hant'
+import { chineseSearchOptimize, pagefindPlugin } from 'vitepress-plugin-pagefind'
+import { enUS, enUSSidebar } from './locales/en-US'
+import { zhCN, zhCNSidebar } from './locales/zh-CN'
+import { zhHant, zhHantSidebar } from './locales/zh-Hant'
 
 const socialLinks = [
   { icon: 'github', link: 'https://github.com/ZhiJingHub' }
@@ -42,16 +43,6 @@ export default defineConfig({
       '/en-US/': enUSSidebar,
       '/zh-CN/': zhCNSidebar,
       '/zh-Hant/': zhHantSidebar
-    },
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          en_US: enUSSearch,
-          zh_CN: zhCNSearch,
-          zh_Hant: zhHantSearch
-        }
-      }
     }
   },
 
@@ -59,5 +50,33 @@ export default defineConfig({
     'en-US': enUS,
     'zh-CN': zhCN,
     'zh-Hant': zhHant
+  },
+
+  vite: {
+    plugins: [
+      pagefindPlugin({
+        customSearchQuery: chineseSearchOptimize,
+        locales: {
+          'en-US': {
+            btnPlaceholder: 'Search',
+            placeholder: 'Search Docs...',
+            emptyText: 'No results',
+            heading: 'Total: {{searchResult}} search results.'
+          },
+          'zh-CN': {
+            btnPlaceholder: '搜索',
+            placeholder: '搜索文档',
+            emptyText: '空空如也',
+            heading: '共: {{searchResult}} 条结果'
+          },
+          'zh-Hant': {
+            btnPlaceholder: '搜尋',
+            placeholder: '搜尋文檔',
+            emptyText: '沒有結果',
+            heading: '共: {{searchResult}} 條結果'
+          }
+        }
+      })
+    ]
   }
 })
