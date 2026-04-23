@@ -1,7 +1,7 @@
 import type { LocaleSpecificConfig } from 'vitepress'
 import type { DefaultTheme } from 'vitepress/theme'
 
-export const zhHant: LocaleSpecificConfig<DefaultTheme.Config> = {
+export const zhHant = {
   label: '繁體中文',
   lang: 'zh-Hant',
   link: '/zh-Hant/',
@@ -33,7 +33,7 @@ export const zhHant: LocaleSpecificConfig<DefaultTheme.Config> = {
     returnToTopLabel: '返回頂部',
     langMenuLabel: '切換語言'
   }
-}
+} satisfies LocaleSpecificConfig<DefaultTheme.Config> & { label: string; link: string }
 
 export const zhHantSidebar = [
   {

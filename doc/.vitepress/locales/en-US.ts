@@ -1,7 +1,7 @@
 import type { LocaleSpecificConfig } from 'vitepress'
 import type { DefaultTheme } from 'vitepress/theme'
 
-export const enUS: LocaleSpecificConfig<DefaultTheme.Config> = {
+export const enUS = {
   label: 'English',
   lang: 'en-US',
   link: '/en-US/',
@@ -33,7 +33,7 @@ export const enUS: LocaleSpecificConfig<DefaultTheme.Config> = {
     returnToTopLabel: 'Return to top',
     langMenuLabel: 'Switch language'
   }
-}
+} satisfies LocaleSpecificConfig<DefaultTheme.Config> & { label: string; link: string }
 
 export const enUSSidebar = [
   {

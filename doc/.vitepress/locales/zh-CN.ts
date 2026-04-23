@@ -1,7 +1,7 @@
 import type { LocaleSpecificConfig } from 'vitepress'
 import type { DefaultTheme } from 'vitepress/theme'
 
-export const zhCN: LocaleSpecificConfig<DefaultTheme.Config> = {
+export const zhCN = {
   label: '简体中文',
   lang: 'zh-CN',
   link: '/zh-CN/',
@@ -33,7 +33,7 @@ export const zhCN: LocaleSpecificConfig<DefaultTheme.Config> = {
     returnToTopLabel: '返回顶部',
     langMenuLabel: '切换语言'
   }
-}
+} satisfies LocaleSpecificConfig<DefaultTheme.Config> & { label: string; link: string }
 
 export const zhCNSidebar = [
   {
