@@ -5,6 +5,7 @@
 docker run -dit \
   -v $PWD/ql/data:/ql/data \
   -p 5701:5700 \
+  -e TZ=Asia/Shanghai \
   --name qinglong \
   --hostname qinglong \
   --restart unless-stopped \
