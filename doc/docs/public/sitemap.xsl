@@ -5,6 +5,49 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
+  <xsl:template name="url-group">
+    <xsl:param name="icon"/>
+    <xsl:param name="title"/>
+    <xsl:param name="priority"/>
+    <xsl:param name="priority-class"/>
+
+    <xsl:for-each select="sitemap:urlset/sitemap:url[sitemap:priority=$priority]">
+      <xsl:if test="position()=1">
+        <div class="group">
+          <div class="group-title"><xsl:value-of select="$icon"/> <xsl:value-of select="$title"/> <span class="badge">priority <xsl:value-of select="$priority"/></span></div>
+          <table>
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>更新频率</th>
+                <th>优先级</th>
+                <th>最后修改</th>
+                <th>多语言</th>
+              </tr>
+            </thead>
+            <tbody>
+              <xsl:for-each select="../sitemap:url[sitemap:priority=$priority]">
+                <tr>
+                  <td><a class="url-link"><xsl:attribute name="href"><xsl:value-of select="sitemap:loc"/></xsl:attribute><xsl:value-of select="sitemap:loc"/></a></td>
+                  <td><span class="freq"><xsl:value-of select="sitemap:changefreq"/></span></td>
+                  <td><span class="priority {$priority-class}"><xsl:value-of select="sitemap:priority"/></span></td>
+                  <td><span class="lastmod"><xsl:value-of select="sitemap:lastmod"/></span></td>
+                  <td>
+                    <div class="alternates">
+                      <xsl:for-each select="xhtml:link">
+                        <span class="alt-badge"><xsl:value-of select="@hreflang"/></span>
+                      </xsl:for-each>
+                    </div>
+                  </td>
+                </tr>
+              </xsl:for-each>
+            </tbody>
+          </table>
+        </div>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:template>
+
   <xsl:template match="/">
     <html lang="zh-CN">
       <head>
@@ -183,149 +226,33 @@
             </div>
           </div>
 
-          <xsl:for-each select="sitemap:urlset/sitemap:url[sitemap:priority='1.0']">
-            <xsl:if test="position()=1">
-              <div class="group">
-                <div class="group-title">🏠 首页 <span class="badge">priority 1.0</span></div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>URL</th>
-                      <th>更新频率</th>
-                      <th>优先级</th>
-                      <th>最后修改</th>
-                      <th>多语言</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="../sitemap:url[sitemap:priority='1.0']">
-                      <tr>
-                        <td><a class="url-link"><xsl:attribute name="href"><xsl:value-of select="sitemap:loc"/></xsl:attribute><xsl:value-of select="sitemap:loc"/></a></td>
-                        <td><span class="freq"><xsl:value-of select="sitemap:changefreq"/></span></td>
-                        <td><span class="priority priority-high"><xsl:value-of select="sitemap:priority"/></span></td>
-                        <td><span class="lastmod"><xsl:value-of select="sitemap:lastmod"/></span></td>
-                        <td>
-                          <div class="alternates">
-                            <xsl:for-each select="xhtml:link">
-                              <span class="alt-badge"><xsl:value-of select="@hreflang"/></span>
-                            </xsl:for-each>
-                          </div>
-                        </td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
-            </xsl:if>
-          </xsl:for-each>
+          <xsl:call-template name="url-group">
+            <xsl:with-param name="icon" select="'🏠'"/>
+            <xsl:with-param name="title" select="'首页'"/>
+            <xsl:with-param name="priority" select="'1.0'"/>
+            <xsl:with-param name="priority-class" select="'priority-high'"/>
+          </xsl:call-template>
 
-          <xsl:for-each select="sitemap:urlset/sitemap:url[sitemap:priority='0.8']">
-            <xsl:if test="position()=1">
-              <div class="group">
-                <div class="group-title">📄 文档页面 <span class="badge">priority 0.8</span></div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>URL</th>
-                      <th>更新频率</th>
-                      <th>优先级</th>
-                      <th>最后修改</th>
-                      <th>多语言</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="../sitemap:url[sitemap:priority='0.8']">
-                      <tr>
-                        <td><a class="url-link"><xsl:attribute name="href"><xsl:value-of select="sitemap:loc"/></xsl:attribute><xsl:value-of select="sitemap:loc"/></a></td>
-                        <td><span class="freq"><xsl:value-of select="sitemap:changefreq"/></span></td>
-                        <td><span class="priority priority-mid"><xsl:value-of select="sitemap:priority"/></span></td>
-                        <td><span class="lastmod"><xsl:value-of select="sitemap:lastmod"/></span></td>
-                        <td>
-                          <div class="alternates">
-                            <xsl:for-each select="xhtml:link">
-                              <span class="alt-badge"><xsl:value-of select="@hreflang"/></span>
-                            </xsl:for-each>
-                          </div>
-                        </td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
-            </xsl:if>
-          </xsl:for-each>
+          <xsl:call-template name="url-group">
+            <xsl:with-param name="icon" select="'📄'"/>
+            <xsl:with-param name="title" select="'文档页面'"/>
+            <xsl:with-param name="priority" select="'0.8'"/>
+            <xsl:with-param name="priority-class" select="'priority-mid'"/>
+          </xsl:call-template>
 
-          <xsl:for-each select="sitemap:urlset/sitemap:url[sitemap:priority='0.7']">
-            <xsl:if test="position()=1">
-              <div class="group">
-                <div class="group-title">🐳 Docker 教程 <span class="badge">priority 0.7</span></div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>URL</th>
-                      <th>更新频率</th>
-                      <th>优先级</th>
-                      <th>最后修改</th>
-                      <th>多语言</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="../sitemap:url[sitemap:priority='0.7']">
-                      <tr>
-                        <td><a class="url-link"><xsl:attribute name="href"><xsl:value-of select="sitemap:loc"/></xsl:attribute><xsl:value-of select="sitemap:loc"/></a></td>
-                        <td><span class="freq"><xsl:value-of select="sitemap:changefreq"/></span></td>
-                        <td><span class="priority priority-mid"><xsl:value-of select="sitemap:priority"/></span></td>
-                        <td><span class="lastmod"><xsl:value-of select="sitemap:lastmod"/></span></td>
-                        <td>
-                          <div class="alternates">
-                            <xsl:for-each select="xhtml:link">
-                              <span class="alt-badge"><xsl:value-of select="@hreflang"/></span>
-                            </xsl:for-each>
-                          </div>
-                        </td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
-            </xsl:if>
-          </xsl:for-each>
+          <xsl:call-template name="url-group">
+            <xsl:with-param name="icon" select="'🐳'"/>
+            <xsl:with-param name="title" select="'Docker 教程'"/>
+            <xsl:with-param name="priority" select="'0.7'"/>
+            <xsl:with-param name="priority-class" select="'priority-mid'"/>
+          </xsl:call-template>
 
-          <xsl:for-each select="sitemap:urlset/sitemap:url[sitemap:priority='0.5']">
-            <xsl:if test="position()=1">
-              <div class="group">
-                <div class="group-title">ℹ️ 关于页面 <span class="badge">priority 0.5</span></div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>URL</th>
-                      <th>更新频率</th>
-                      <th>优先级</th>
-                      <th>最后修改</th>
-                      <th>多语言</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="../sitemap:url[sitemap:priority='0.5']">
-                      <tr>
-                        <td><a class="url-link"><xsl:attribute name="href"><xsl:value-of select="sitemap:loc"/></xsl:attribute><xsl:value-of select="sitemap:loc"/></a></td>
-                        <td><span class="freq"><xsl:value-of select="sitemap:changefreq"/></span></td>
-                        <td><span class="priority priority-low"><xsl:value-of select="sitemap:priority"/></span></td>
-                        <td><span class="lastmod"><xsl:value-of select="sitemap:lastmod"/></span></td>
-                        <td>
-                          <div class="alternates">
-                            <xsl:for-each select="xhtml:link">
-                              <span class="alt-badge"><xsl:value-of select="@hreflang"/></span>
-                            </xsl:for-each>
-                          </div>
-                        </td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
-            </xsl:if>
-          </xsl:for-each>
+          <xsl:call-template name="url-group">
+            <xsl:with-param name="icon" select="'ℹ️'"/>
+            <xsl:with-param name="title" select="'关于页面'"/>
+            <xsl:with-param name="priority" select="'0.5'"/>
+            <xsl:with-param name="priority-class" select="'priority-low'"/>
+          </xsl:call-template>
 
           <footer>
             <p>由 VitePress 自动生成 · <a href="https://docs.iwexe.top">返回首页</a></p>
