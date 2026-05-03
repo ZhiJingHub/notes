@@ -46,7 +46,7 @@ export default {
         status: 302,
         headers: {
           'Location': redirectUrl.href,
-          'Set-Cookie': `preferred_lang=${encodeURIComponent(target)}; Path=/; Max-Age=604800; SameSite=Lax; Secure`
+          'Set-Cookie': `preferred_lang=${encodeURIComponent(target)}; Path=/; Max-Age=3600; SameSite=Lax; Secure`
         }
       })
     }
