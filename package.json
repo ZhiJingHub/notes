@@ -11,8 +11,5 @@
     "build": "vitepress build doc",
     "preview": "vitepress preview doc",
     "deploy": "pnpm run build && wrangler deploy"
-  },
-  "dependencies": {
-    "@fontsource/jetbrains-mono": "^5.2.8"
   }
 }

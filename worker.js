@@ -1,27 +1,27 @@
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url)
-    
+
     if (url.pathname === '/') {
       const cookie = request.headers.get('cookie') || ''
       const langCookie = cookie.split(';').find(c => c.trim().startsWith('preferred_lang='))
-      
+
       if (langCookie) {
-        const preferredLang = langCookie.split('=')[1].trim()
+        const preferredLang = decodeURIComponent(langCookie.split('=')[1].trim())
         return Response.redirect(new URL(preferredLang, request.url), 302)
       }
 
       const acceptLanguage = request.headers.get('accept-language') || ''
       const languages = acceptLanguage.split(',').map(lang => lang.split(';')[0].trim())
-      
+
       let target = '/en-US/'
-      
+
       for (const lang of languages) {
         if (lang === 'zh-CN' || lang === 'zh-Hans' || lang.startsWith('zh-Hans')) {
           target = '/zh-CN/'
           break
         }
-        if (lang === 'zh-TW' || lang === 'zh-HK' || lang === 'zh-MO' || 
+        if (lang === 'zh-TW' || lang === 'zh-HK' || lang === 'zh-MO' ||
             lang === 'zh-Hant' || lang.startsWith('zh-Hant')) {
           target = '/zh-Hant/'
           break
@@ -36,34 +36,34 @@ export default {
           break
         }
       }
-      
+
       const redirectUrl = new URL(target, request.url)
       return new Response(null, {
         status: 302,
         headers: {
           'Location': redirectUrl.href,
-          'Set-Cookie': `preferred_lang=${target}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`
+          'Set-Cookie': `preferred_lang=${encodeURIComponent(target)}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`
         }
       })
     }
 
     const response = await env.ASSETS.fetch(request)
-    
+
     const staticExtensions = ['.js', '.css', '.woff2', '.woff', '.ttf', '.eot', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp']
     const isStaticAsset = url.pathname.startsWith('/assets/') || staticExtensions.some(ext => url.pathname.endsWith(ext))
-    
+
     if (isStaticAsset) {
-      const newResponse = new Response(response.body, response)
-      newResponse.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
-      return newResponse
+      const headers = new Headers(response.headers)
+      headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+      return new Response(response.body, { status: response.status, statusText: response.statusText, headers })
     }
-    
+
     if (response.headers.get('content-type')?.includes('text/html')) {
-      const newResponse = new Response(response.body, response)
-      newResponse.headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
-      return newResponse
+      const headers = new Headers(response.headers)
+      headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
+      return new Response(response.body, { status: response.status, statusText: response.statusText, headers })
     }
-    
+
     return response
   }
 }

@@ -56,21 +56,3 @@ export const enUSSidebar = [
     ]
   }
 ]
-
-export const enUSSearch = {
-  translations: {
-    button: {
-      buttonText: 'Search',
-      buttonAriaLabel: 'Search'
-    },
-    modal: {
-      noResultsText: 'No results for',
-      resetButtonTitle: 'Clear search query',
-      footer: {
-        selectText: 'to select',
-        navigateText: 'to navigate',
-        closeText: 'to close'
-      }
-    }
-  }
-}

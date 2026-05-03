@@ -112,6 +112,13 @@
   --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
+:lang(zh-Hant),
+:lang(zh-TW),
+:lang(zh-HK),
+:lang(zh-MO) {
+  --vp-font-family-base: 'HarmonyOS Sans TC', 'HarmonyOS Sans SC', 'HarmonyOS Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+
 /**
  * Colors
  *

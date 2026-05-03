@@ -5,7 +5,7 @@ This is an awesome documentation project built with VitePress.
 ## Features
 
 - 🌍 Multi-language support (English, Simplified Chinese, Traditional Chinese)
-- 🔍 Local search functionality
+- 🔍 Pagefind search functionality
 - 🎨 Clean and modern design
 - 📱 Responsive layout
 - 🚀 Deployed on Cloudflare Workers

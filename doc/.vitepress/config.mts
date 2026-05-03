@@ -36,8 +36,7 @@ export default defineConfig({
   themeConfig: {
     socialLinks,
     outline: {
-      level: [2, 3],
-      label: 'On this page'
+      level: [2, 3]
     },
     sidebar: {
       '/en-US/': enUSSidebar,
