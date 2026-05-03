@@ -9,8 +9,6 @@ const socialLinks = [
 ]
 
 export default defineConfig({
-  title: "My Awesome Project",
-  description: "A VitePress Site",
   srcDir: 'docs',
   cleanUrls: true,
   sitemap: {
@@ -27,7 +25,6 @@ export default defineConfig({
       }
     ],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
-    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'preconnect', href: 'https://r2.iwexe.top', crossorigin: '' }],
     ['link', { rel: 'dns-prefetch', href: 'https://r2.iwexe.top' }]

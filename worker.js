@@ -1,5 +1,9 @@
 export default {
   async fetch(request, env, ctx) {
+    if (request.method !== 'GET' && request.method !== 'HEAD') {
+      return new Response('Method Not Allowed', { status: 405 })
+    }
+
     const url = new URL(request.url)
 
     if (url.pathname === '/') {
@@ -48,6 +52,16 @@ export default {
     }
 
     const response = await env.ASSETS.fetch(request)
+
+    if (response.status === 404) {
+      return new Response('Not Found', { status: 404 })
+    }
+
+    if (url.pathname.startsWith('/pagefind/')) {
+      const headers = new Headers(response.headers)
+      headers.set('Cache-Control', 'public, max-age=3600')
+      return new Response(response.body, { status: response.status, statusText: response.statusText, headers })
+    }
 
     const staticExtensions = ['.js', '.css', '.woff2', '.woff', '.ttf', '.eot', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp']
     const isStaticAsset = url.pathname.startsWith('/assets/') || staticExtensions.some(ext => url.pathname.endsWith(ext))
