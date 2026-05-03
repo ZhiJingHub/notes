@@ -11,8 +11,29 @@ const socialLinks = [
 export default defineConfig({
   srcDir: 'docs',
   cleanUrls: true,
+  lastUpdated: true,
+
   sitemap: {
-    hostname: 'https://docs.iwexe.top'
+    hostname: 'https://docs.iwexe.top',
+    lastmodDateOnly: true,
+    transformItems: (items) => {
+      return items.map((item) => {
+        if (item.url.includes('/about')) {
+          item.changefreq = 'monthly'
+          item.priority = 0.5
+        } else if (item.url.endsWith('/en-US/') || item.url.endsWith('/zh-CN/') || item.url.endsWith('/zh-Hant/')) {
+          item.changefreq = 'weekly'
+          item.priority = 1.0
+        } else if (item.url.includes('/Docker/')) {
+          item.changefreq = 'monthly'
+          item.priority = 0.7
+        } else {
+          item.changefreq = 'weekly'
+          item.priority = 0.8
+        }
+        return item
+      })
+    }
   },
 
   head: [
