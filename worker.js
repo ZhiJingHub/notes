@@ -46,7 +46,7 @@ export default {
         status: 302,
         headers: {
           'Location': redirectUrl.href,
-          'Set-Cookie': `preferred_lang=${encodeURIComponent(target)}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`
+          'Set-Cookie': `preferred_lang=${encodeURIComponent(target)}; Path=/; Max-Age=604800; SameSite=Lax; Secure`
         }
       })
     }
@@ -54,7 +54,11 @@ export default {
     const response = await env.ASSETS.fetch(request)
 
     if (response.status === 404) {
-      return new Response('Not Found', { status: 404 })
+      const notFoundUrl = new URL('/404.html', request.url)
+      const notFoundResponse = await env.ASSETS.fetch(new Request(notFoundUrl, request))
+      const headers = new Headers(notFoundResponse.headers)
+      headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
+      return new Response(notFoundResponse.body, { status: 404, statusText: 'Not Found', headers })
     }
 
     if (url.pathname.startsWith('/pagefind/')) {

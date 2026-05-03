@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vitepress dev doc",
-    "build": "vitepress build doc && node -e \"const fs=require('fs'),p=require('path').join('doc','.vitepress','dist','sitemap.xml');try{let c=fs.readFileSync(p,'utf8');if(!c.includes('xml-stylesheet')){c=c.replace('<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>','<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n<?xml-stylesheet type=\\\"text/xsl\\\" href=\\\"/sitemap.xsl\\\"?>');fs.writeFileSync(p,c);console.log('sitemap.xsl injected')}else{console.log('sitemap.xsl already present')}}catch(e){console.log('sitemap.xml not found')}",
+    "build": "vitepress build doc && node scripts/inject-sitemap-xsl.js",
     "preview": "vitepress preview doc",
     "deploy": "pnpm run build && wrangler deploy"
   }
