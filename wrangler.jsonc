@@ -8,7 +8,7 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page",
     "binding": "ASSETS",
-    "run_worker_first": ["/"]
+    "run_worker_first": true
   },
   "build": {
     "command": "pnpm install && pnpm run build"
@@ -17,9 +17,6 @@
     "logs": {
       "enabled": true,
       "invocation_logs": true
-    },
-    "traces": {
-      "enabled": false
     }
   }
 }
