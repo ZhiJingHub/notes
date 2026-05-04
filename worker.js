@@ -1,9 +1,5 @@
 export default {
-  async fetch(request, env, ctx) {
-    if (request.method !== 'GET' && request.method !== 'HEAD') {
-      return new Response('Method Not Allowed', { status: 405 })
-    }
-
+  async fetch(request) {
     const url = new URL(request.url)
 
     if (url.pathname === '/') {
@@ -27,37 +23,6 @@ export default {
       return Response.redirect(redirectUrl, 302)
     }
 
-    const response = await env.ASSETS.fetch(request)
-
-    if (response.status === 404) {
-      const notFoundUrl = new URL('/404.html', request.url)
-      const notFoundResponse = await env.ASSETS.fetch(new Request(notFoundUrl, request))
-      return withCacheControl(notFoundResponse, 'public, max-age=60, stale-while-revalidate=300', 404)
-    }
-
-    if (url.pathname.startsWith('/pagefind/')) {
-      return withCacheControl(response, 'public, max-age=3600')
-    }
-
-    const staticExtensions = ['.js', '.css', '.woff2', '.woff', '.ttf', '.eot', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp']
-    if (url.pathname.startsWith('/assets/') || staticExtensions.some(ext => url.pathname.endsWith(ext))) {
-      return withCacheControl(response, 'public, max-age=31536000, immutable')
-    }
-
-    if (response.headers.get('content-type')?.includes('text/html')) {
-      return withCacheControl(response, 'public, max-age=60, stale-while-revalidate=300')
-    }
-
-    return response
+    return new Response('Not Found', { status: 404 })
   }
-}
-
-function withCacheControl(response, cacheControl, status) {
-  const headers = new Headers(response.headers)
-  headers.set('Cache-Control', cacheControl)
-  return new Response(response.body, {
-    status: status ?? response.status,
-    statusText: status ? 'Not Found' : response.statusText,
-    headers
-  })
 }
