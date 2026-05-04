@@ -32,7 +32,7 @@ export default {
     if (response.status === 404) {
       const notFoundUrl = new URL('/404.html', request.url)
       const notFoundResponse = await env.ASSETS.fetch(new Request(notFoundUrl, request))
-      return withCacheControl(notFoundResponse, 'public, max-age=0, must-revalidate', 404)
+      return withCacheControl(notFoundResponse, 'public, max-age=60, stale-while-revalidate=300', 404)
     }
 
     if (url.pathname.startsWith('/pagefind/')) {
@@ -45,7 +45,7 @@ export default {
     }
 
     if (response.headers.get('content-type')?.includes('text/html')) {
-      return withCacheControl(response, 'public, max-age=0, must-revalidate')
+      return withCacheControl(response, 'public, max-age=60, stale-while-revalidate=300')
     }
 
     return response

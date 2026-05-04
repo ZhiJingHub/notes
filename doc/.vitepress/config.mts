@@ -48,7 +48,12 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'preconnect', href: 'https://r2.iwexe.top', crossorigin: '' }],
-    ['link', { rel: 'dns-prefetch', href: 'https://r2.iwexe.top' }]
+    ['link', { rel: 'dns-prefetch', href: 'https://r2.iwexe.top' }],
+    ['link', { rel: 'preconnect', href: 'https://u.iwexe.top' }],
+    ['link', { rel: 'dns-prefetch', href: 'https://u.iwexe.top' }],
+    ['link', { rel: 'preload', href: 'https://r2.iwexe.top/fonts/HarmonyOS_Sans_SC_Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+    ['link', { rel: 'preload', href: 'https://r2.iwexe.top/fonts/HarmonyOS_Sans_SC_Bold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+    ['link', { rel: 'preload', href: 'https://r2.iwexe.top/fonts/JetBrainsMono-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }]
   ],
 
   themeConfig: {
