@@ -1,13 +1,3 @@
-/**
- * Customize default theme styling by overriding CSS variables:
- * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
- */
-
-/**
- * Fonts
- * -------------------------------------------------------------------------- */
-
-/* HarmonyOS Sans SC - Simplified Chinese */
 @font-face {
   font-family: 'HarmonyOS Sans SC';
   src: local('HarmonyOS Sans SC'), local('HarmonyOS_Sans_SC'), url('https://r2.iwexe.top/fonts/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
@@ -32,7 +22,6 @@
   font-display: swap;
 }
 
-/* HarmonyOS Sans TC - Traditional Chinese */
 @font-face {
   font-family: 'HarmonyOS Sans TC';
   src: local('HarmonyOS Sans TC'), local('HarmonyOS_Sans_TC'), url('https://r2.iwexe.top/fonts/HarmonyOS_Sans_TC_Regular.woff2') format('woff2');
@@ -57,7 +46,6 @@
   font-display: swap;
 }
 
-/* HarmonyOS Sans - Latin/English */
 @font-face {
   font-family: 'HarmonyOS Sans';
   src: local('HarmonyOS Sans'), local('HarmonyOS_Sans'), url('https://r2.iwexe.top/fonts/HarmonyOS_Sans_Regular.woff2') format('woff2');
@@ -82,7 +70,6 @@
   font-display: swap;
 }
 
-/* JetBrains Mono - Code Font */
 @font-face {
   font-family: 'JetBrains Mono';
   src: local('JetBrains Mono'), local('JetBrainsMono-Regular'), url('https://r2.iwexe.top/fonts/JetBrainsMono-Regular.woff2') format('woff2');
@@ -124,24 +111,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/**
- * Component: Home
- * -------------------------------------------------------------------------- */
-
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-    120deg,
-    #bd34fe 30%,
-    #41d1ff
-  );
-
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    #bd34fe 50%,
-    #47caff 50%
-  );
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
   --vp-home-hero-image-filter: blur(44px);
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+  --home-pt: 24px;
+  --home-pb: 96px;
+  --hero-py: 48px;
+  --features-py: 24px;
 }
 
 @media (min-width: 640px) {
@@ -150,88 +132,36 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  :root {
+    --home-pt: 48px;
+    --home-pb: 128px;
+    --hero-py: 64px;
+    --features-py: 32px;
+  }
+}
+
 @media (min-width: 960px) {
   :root {
     --vp-home-hero-image-filter: blur(68px);
+    --home-pt: 64px;
+    --home-pb: 96px;
+    --hero-py: 96px;
+    --features-py: 48px;
   }
 }
-
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-:root {
-  --vp-custom-block-tip-border: transparent;
-  --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
-}
-
-/**
- * Home Layout
- * -------------------------------------------------------------------------- */
 
 .VPHome {
-  padding-top: 24px;
-  padding-bottom: 96px;
+  padding-top: var(--home-pt);
+  padding-bottom: var(--home-pb);
 }
-
-@media (min-width: 768px) {
-  .VPHome {
-    padding-top: 48px;
-    padding-bottom: 128px;
-  }
-}
-
-@media (min-width: 960px) {
-  .VPHome {
-    padding-top: 64px;
-    padding-bottom: 96px;
-  }
-}
-
-/**
- * Hero Section
- * -------------------------------------------------------------------------- */
 
 .VPHero {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: var(--hero-py);
+  padding-bottom: var(--hero-py);
 }
-
-@media (min-width: 768px) {
-  .VPHero {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-}
-
-@media (min-width: 960px) {
-  .VPHero {
-    padding-top: 96px;
-    padding-bottom: 96px;
-  }
-}
-
-/**
- * Features Section
- * -------------------------------------------------------------------------- */
 
 .VPFeatures {
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-
-@media (min-width: 768px) {
-  .VPFeatures {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-}
-
-@media (min-width: 960px) {
-  .VPFeatures {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
+  padding-top: var(--features-py);
+  padding-bottom: var(--features-py);
 }

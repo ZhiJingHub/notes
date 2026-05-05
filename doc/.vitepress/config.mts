@@ -8,6 +8,14 @@ const socialLinks = [
   { icon: 'github', link: 'https://github.com/ZhiJingHub' }
 ]
 
+type Changefreq = 'monthly' | 'weekly' | 'daily' | 'always' | 'hourly' | 'yearly' | 'never'
+
+const sitemapRules: { test: (url: string) => boolean; changefreq: Changefreq; priority: number }[] = [
+  { test: (url) => url.includes('/about'), changefreq: 'monthly', priority: 0.5 },
+  { test: (url) => /\/(en-US|zh-CN|zh-Hant)\/$/.test(url), changefreq: 'weekly', priority: 1.0 },
+  { test: (url) => url.includes('/Docker/'), changefreq: 'monthly', priority: 0.7 },
+]
+
 export default defineConfig({
   srcDir: 'docs',
   cleanUrls: true,
@@ -18,15 +26,10 @@ export default defineConfig({
     lastmodDateOnly: true,
     transformItems: (items) => {
       return items.map((item) => {
-        if (item.url.includes('/about')) {
-          item.changefreq = 'monthly'
-          item.priority = 0.5
-        } else if (item.url.endsWith('/en-US/') || item.url.endsWith('/zh-CN/') || item.url.endsWith('/zh-Hant/')) {
-          item.changefreq = 'weekly'
-          item.priority = 1.0
-        } else if (item.url.includes('/Docker/')) {
-          item.changefreq = 'monthly'
-          item.priority = 0.7
+        const rule = sitemapRules.find((r) => r.test(item.url))
+        if (rule) {
+          item.changefreq = rule.changefreq
+          item.priority = rule.priority
         } else {
           item.changefreq = 'weekly'
           item.priority = 0.8
@@ -40,7 +43,7 @@ export default defineConfig({
     [
       'script',
       {
-        defer: 'true',
+        defer: '',
         src: 'https://u.iwexe.top/script.js',
         'data-website-id': '6484dd8a-fde8-4e5d-aa33-19f4f9f9250c'
       }
