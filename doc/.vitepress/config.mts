@@ -8,14 +8,6 @@ const socialLinks = [
   { icon: 'github', link: 'https://github.com/ZhiJingHub' }
 ]
 
-type Changefreq = 'monthly' | 'weekly' | 'daily' | 'always' | 'hourly' | 'yearly' | 'never'
-
-const sitemapRules: { test: (url: string) => boolean; changefreq: Changefreq; priority: number }[] = [
-  { test: (url) => url.includes('/about'), changefreq: 'monthly', priority: 0.5 },
-  { test: (url) => /\/(en-US|zh-CN|zh-Hant)\/$/.test(url), changefreq: 'weekly', priority: 1.0 },
-  { test: (url) => url.includes('/Docker/'), changefreq: 'monthly', priority: 0.7 },
-]
-
 export default defineConfig({
   srcDir: 'docs',
   cleanUrls: true,
@@ -26,13 +18,20 @@ export default defineConfig({
     lastmodDateOnly: true,
     transformItems: (items) => {
       return items.map((item) => {
-        const rule = sitemapRules.find((r) => r.test(item.url))
-        if (rule) {
-          item.changefreq = rule.changefreq
-          item.priority = rule.priority
-        } else {
+        const pathname = item.url.startsWith('http')
+          ? new URL(item.url).pathname
+          : item.url
+        const depth = pathname.split('/').filter(Boolean).length
+
+        if (depth <= 1) {
+          item.changefreq = 'daily'
+          item.priority = 1.0
+        } else if (depth === 2) {
           item.changefreq = 'weekly'
           item.priority = 0.8
+        } else {
+          item.changefreq = 'monthly'
+          item.priority = 0.6
         }
         return item
       })

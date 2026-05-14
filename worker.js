@@ -37,6 +37,16 @@ export default {
 
     const response = await env.ASSETS.fetch(request)
 
+    if (url.pathname === '/sitemap.xml') {
+      const headers = new Headers(response.headers)
+      headers.set('Content-Type', 'text/xml; charset=utf-8')
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers
+      })
+    }
+
     if (url.pathname.startsWith('/assets/')) {
       return withCacheControl(response, CACHE_IMMUTABLE)
     }
