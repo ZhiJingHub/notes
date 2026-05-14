@@ -10,13 +10,9 @@ if (!fs.existsSync(sitemapPath)) {
 
 let content = fs.readFileSync(sitemapPath, 'utf8')
 if (content.includes('xml-stylesheet')) {
-  console.log('sitemap.xsl already present')
-  process.exit(0)
+  content = content.replace(/\n<\?xml-stylesheet[^?]*\?>/g, '')
+  fs.writeFileSync(sitemapPath, content)
+  console.log('sitemap.xsl removed')
+} else {
+  console.log('sitemap.xml unchanged')
 }
-
-content = content.replace(
-  '<?xml version="1.0" encoding="UTF-8"?>',
-  '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
-)
-fs.writeFileSync(sitemapPath, content)
-console.log('sitemap.xsl injected')
