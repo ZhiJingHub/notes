@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vitepress dev doc",
-    "build": "vitepress build doc",
+    "build": "vitepress build doc && node scripts/clean-sitemap.js",
     "preview": "vitepress preview doc",
     "deploy": "pnpm run build && wrangler deploy"
   }
